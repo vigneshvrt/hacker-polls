@@ -1,0 +1,44 @@
+<div class="container">
+  <div *ngIf="!this.loading">
+    <dl class="row">
+      <dt class="col-sm-3">Name</dt>
+      <dd class="col-sm-9">{{candidate.name}}</dd>
+
+      <dt class="col-sm-3">No. Of Challenges Solved</dt>
+      <dd class="col-sm-9">
+        {{candidate.challengesSolved}}
+      </dd>
+
+      <dt class="col-sm-3">Rating</dt>
+      <dd class="col-sm-9">{{candidate.rating}} / 5</dd>
+
+      <dt class="col-sm-3">Votes</dt>
+      <dd class="col-sm-9">{{candidate.totalVotes}}</dd>
+
+      <dt class="col-sm-3 text-truncate">Expertises</dt>
+      <dd class="col-sm-9">
+        <ul class="list-group">
+          <li *ngFor="let expertise of candidate.expertises">
+            <p class="col-sm-9"> <b class="col-sm-4">{{expertise.skill}}</b> - {{expertise.rating}} / 5</p>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <div *ngIf="this.status==='success'">
+            <div class="text-success">{{this.remarks}}</div>
+          </div>
+          <div *ngIf="this.status==='failed'">
+            <div class="text-danger">{{this.remarks}}</div>
+          </div>
+          <button class="btn btn-primary" (click)="this.addVote()">
+            Vote
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

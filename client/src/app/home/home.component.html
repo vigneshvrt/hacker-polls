@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="!this.loading">
+    <h5>Candidates:</h5>
+    <div class="card mb-3" *ngFor="let candidate of this.candidates">
+      <div class="card-body">
+        <h5>
+          <a routerLink="/profile/{{candidate.id}}">
+            {{candidate.name}}
+          </a>
+          | votes : {{candidate.totalVotes}}
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
